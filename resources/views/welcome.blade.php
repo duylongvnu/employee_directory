@@ -4,14 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            @if(Session::has('message1'))
+            @if(Session::has('message'))
                 <div class="alert alert-warning">
-                    <strong>{{ Session::get('message1') }}</strong>
-                </div>
-            @endif
-            @if(Session::has('message2'))
-                <div class="alert alert-warning">
-                    <strong>{{ Session::get('message2') }}</strong>
+                    <strong>{{ Session::get('message') }}</strong>
                 </div>
             @endif
             <div class="panel panel-success">

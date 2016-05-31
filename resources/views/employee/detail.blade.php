@@ -8,6 +8,7 @@
             	
                 <div class="panel-heading"><strong>Employees</strong></div>
 				<div class="panel-body">
+
 					<div class="col-md-5">
 						@if ($employees->photo == "")
 							<img src="{{ asset('image/icon-profile.png') }}" width="250px" height="200px">
@@ -15,6 +16,7 @@
 							<img src="{{ asset('image/'. $employees->photo) }}" width="250px" height="200px">
 						@endif
 					</div>
+					
 					<div class="col-md-7">
 						<table class="table table-striped" style="width: 100%">
 							<tr>

@@ -35,6 +35,11 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
+                                @if (Session::has('message'))
+                                    <span class="help-block">
+                                        <strong>{{ Session::get('message') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

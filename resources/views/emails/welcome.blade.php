@@ -1,5 +1,5 @@
 <h1>Welcome to Employee Directory website</h1> <br />
-<p>Your account information:</p><br />
+<p>Your account information: </p><br />
 
 <ul>
 	<li>Name: {{ $user->name }}</li>

@@ -22,7 +22,8 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::resource('/changepassword','UsersController');
+    Route::get('/changepassword', 'UsersController@getChange');
+    Route::post('changepassword', 'UsersController@postChange');
     Route::get('/addadmin', 'UsersController@getAdd');
     Route::post('addadmin', 'UsersController@postAdd');
     

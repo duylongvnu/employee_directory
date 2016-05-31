@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
             	
-                <div class="panel-heading"><strong>Departments</strong></div>
+                <div class="panel-heading"><strong>Department</strong></div>
 				<div class="panel-body">
 					<table class="table table-striped" style="width: 100%">
 						<tr>

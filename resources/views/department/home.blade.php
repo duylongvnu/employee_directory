@@ -2,25 +2,16 @@
 
 @section('content')
 <div class="container">
-	@if(Session::has('message1'))
+	@if(Session::has('message'))
         <div class="alert alert-warning">
-            <strong>{{ Session::get('message1') }}</strong>
+            <strong>{{ Session::get('message') }}</strong>
         </div>
     @endif
-    @if(Session::has('message2'))
-        <div class="alert alert-warning">
-            <strong>{{ Session::get('message2') }}</strong>
-        </div>
-    @endif
-    
-    @if(Session::has('message3'))
-        <div class="alert alert-warning">
-            <strong>{{ Session::get('message3') }}</strong>
-        </div>
-    @endif
+
 	@if (Auth::user())
         <a href="{{ url('/department\add') }} " class="btn btn-primary">Add Department</a><br /><br />
     @endif
+
     <div class="panel panel-success">
             	
         <div class="panel-heading"><strong>Departments</strong></div>
@@ -38,7 +29,7 @@
 				</tr>
 				@foreach($departments as $department)
 					<tr>
-						<td>{{ $stt }}</td>
+						<td>{{ $stt++ }}</td>
 						<td><a href="{{ url('/department/detail', $department->id) }}"> {{ $department->name }}</a></td>
 						<td>{{ $department->office_phone }}</td>
 						<td>
@@ -58,9 +49,6 @@
 							{{ Form::close() }}
 						</td>
 					</tr>
-					<?php
-						$stt ++;
-					?>
 				@endforeach
 			</table>
 		</div>

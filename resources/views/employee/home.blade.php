@@ -2,19 +2,9 @@
 
 @section('content')
 <div class="container">
-	@if(Session::has('message1'))
+	@if(Session::has('message'))
         <div class="alert alert-warning">
-            <strong>{{ Session::get('message1') }}</strong>
-        </div>
-    @endif
-    @if(Session::has('message2'))
-        <div class="alert alert-warning">
-            <strong>{{ Session::get('message2') }}</strong>
-        </div>
-    @endif
-    @if(Session::has('message3'))
-        <div class="alert alert-warning">
-            <strong>{{ Session::get('message3') }}</strong>
+            <strong>{{ Session::get('message') }}</strong>
         </div>
     @endif
     
@@ -26,10 +16,12 @@
     	<div class="panel-heading"><strong>Search</strong></div>
     	<div class="panel-body">
     		<form class="form-inline" id="indexForm" method="GET" action="{{ url('/employee') }}" accept-charset="utf-8">
+
     			<div class="form-group">
     				<label class="sr-only" for="name">Employee Name</label>
     				<input name="name" class="form-control" placeholder="Employee Name" type="text" id="name" value="{{$name}}"/>
     			</div>
+
     			<div class="form-group">
     				<label class="sr-only" for="department">Department</label>
     				<select class="form-control" id="department" name="department_id">
@@ -43,6 +35,7 @@
                         @endforeach
                     </select>
     			</div>
+
     			<button class="btn btn-danger" type="submit">Search</button>
 				<button class="btn btn-warning btn-clear" type="button">Clear</button>
     		</form>
@@ -68,7 +61,7 @@
 				</tr>
 				@foreach($employees as $employee)
 					<tr>
-						<td>{{ $stt }}</td>
+						<td>{{ $stt++ }}</td>
 						<td><a href="{{ url('/employee/detail', $employee->id) }}"> {{ $employee->name }}</a></td>
 						<td>
 							@foreach($departments as $department)
@@ -88,9 +81,6 @@
 							</td>
 						@endif
 					</tr>
-					<?php
-						$stt ++;
-					?>
 				@endforeach
 			</table>
 		</div>
