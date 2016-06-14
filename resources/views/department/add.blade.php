@@ -61,7 +61,7 @@
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">Add Department
+                                <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Add Department
                                 </button>
                             </div>
                         </div>

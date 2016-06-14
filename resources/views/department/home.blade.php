@@ -9,7 +9,7 @@
     @endif
 
 	@if (Auth::user())
-        <a href="{{ url('/department\add') }} " class="btn btn-primary">Add Department</a><br /><br />
+        <a href="{{ url('/department\add') }} " class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Add Department</a><br /><br />
     @endif
 
     <div class="panel panel-success">
@@ -41,10 +41,10 @@
 						</td>
 						<td>
 							{{ Form::open(['route' => ['department.destroy', $department->id], 'method' => 'delete', 'onsubmit' => 'return ConfirmDelete()']) }}
-								<a href="{{ url('/employee?department_id='.$department->id) }}" class="btn btn-warning">Employees</a>
+								<a href="{{ url('/employee?department_id='.$department->id) }}" class="btn btn-warning"><i class="fa fa-users"> Employees</i></a>
 								@if (Auth::user())
-									<a href="{{ url('/department/edit', $department->id) }}" class="btn btn-success">Edit</a>
-									<a href="{{ url('/department') }}" ><button type="submit" class="btn btn-info">Delete</button></a>
+									<a href="{{ url('/department/edit', $department->id) }}" class="btn btn-success"><i class="glyphicon glyphicon-pencil"> Edit</i></a>
+									<a href="{{ url('/department') }}" ><button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-trash"> Delete</i></button></a>
 								@endif
 							{{ Form::close() }}
 						</td>

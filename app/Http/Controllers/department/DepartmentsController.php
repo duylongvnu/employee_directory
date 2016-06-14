@@ -157,15 +157,6 @@ class DepartmentsController extends Controller
     public function destroy($id)
     {
         $departments = Departments::findOrFail($id);
-        $employees = Employees::all();
-        /* Find the employees who have department_id by id of the specified resource.
-        Then assigns empty value for department_id. */
-        foreach ($employees as $employee) {
-            if ($employee->department_id == $departments->id) {
-                $employee->department_id = "";
-                $employee->update();
-            }
-        }
         $departments->delete();
 
         /* Show the deleted announce */

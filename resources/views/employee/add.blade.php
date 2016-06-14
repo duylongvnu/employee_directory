@@ -96,7 +96,7 @@
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">Add Employee
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add Employee
                                 </button>
                             </div>
                         </div>

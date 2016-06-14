@@ -9,7 +9,7 @@
     @endif
     
 	@if (Auth::user())
-        <a href="{{ url('/employee\add') }} " class="btn btn-primary">Add Employee</a><br /><br />
+        <a href="{{ url('/employee\add') }} " class="btn btn-primary"><i class="fa fa-user-plus"></i> Add Employee</a><br /><br />
     @endif
     
     <div class="panel panel-info">
@@ -36,8 +36,8 @@
                     </select>
     			</div>
 
-    			<button class="btn btn-danger" type="submit">Search</button>
-				<button class="btn btn-warning btn-clear" type="button">Clear</button>
+    			<button class="btn btn-danger" type="submit"><i class="fa fa-search"> Search</i></button>
+				<button class="btn btn-warning btn-clear" type="button"><i class="glyphicon glyphicon-erase"> Clear</i></button>
     		</form>
     	</div>
     </div>
@@ -75,8 +75,8 @@
 						@if (Auth::user())
 							<td>
 								{{ Form::open(['route' => ['employee.destroy', $employee->id], 'method' => 'delete', 'onsubmit' => 'return ConfirmDelete()']) }}
-								<a href="{{ url('/employee/edit', $employee->id) }}" class="btn btn-success">Edit</a>
-								<a href="{{ url('/employee') }}"><button type="submit" class="btn btn-info">Delete</button></a>
+								<a href="{{ url('/employee/edit', $employee->id) }}" class="btn btn-success"><i class="glyphicon glyphicon-pencil"> Edit</i></a>
+								<a href="{{ url('/employee') }}"><button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-trash"> Delete</i></button></a>
 								{{ Form::close() }}
 							</td>
 						@endif

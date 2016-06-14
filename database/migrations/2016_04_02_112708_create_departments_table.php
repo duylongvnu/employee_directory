@@ -16,7 +16,7 @@ class CreateDepartmentsTable extends Migration
             $table->increments('id');
 			$table->string('name')->unique();
 			$table->integer('office_phone')->unique();
-			$table->integer('manager_id');
+            $table->integer('manager_id')->unsigned()->nullable()->default(null);
         });
     }
 
@@ -27,6 +27,8 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');        
         Schema::drop('departments');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

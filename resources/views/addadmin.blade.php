@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Create and Send to email
+                                    <i class="fa fa-user-plus"></i> Create and Send to email
                                 </button>
                             </div>
                         </div>
