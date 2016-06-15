@@ -5,6 +5,7 @@ namespace App\Http\Controllers\employee;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CheckEmployeesRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Employees;
@@ -81,7 +82,7 @@ class EmployeesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CheckEmployeesRequest $request)
     {
         $dulieu_tu_input = new Employees;
 
@@ -95,6 +96,15 @@ class EmployeesController extends Controller
                 if ($employee->email == $request->Input('email')) {
                     \Session::flash('message2', 'The email has already been taken.');
                 }
+                return redirect('employee/add');
+            }
+        }
+
+        /* Check the cellphone value with the office_phone */
+        $departments = Departments::all();
+        foreach ($departments as $department) {
+            if ($request->Input('cellphone') == $department->office_phone) {
+                \Session::flash('message1', 'The cellphone has already been taken.');
                 return redirect('employee/add');
             }
         }
@@ -156,7 +166,7 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CheckEmployeesRequest $request, $id)
     {
         /* Check the email address and the cellphone value */
         $employees = Employees::all();
@@ -172,6 +182,15 @@ class EmployeesController extends Controller
             }
         }
 
+        /* Check the cellphone value with the office_phone */
+        $departments = Departments::all();
+        foreach ($departments as $department) {
+            if ($request->Input('cellphone') == $department->office_phone) {
+                \Session::flash('message1', 'The cellphone has already been taken.');
+                return redirect('employee/edit/'. $id);
+            }
+        }
+        
         /* Update the infomation of the specified resource */
         $employees = Employees::findOrFail($id);
 

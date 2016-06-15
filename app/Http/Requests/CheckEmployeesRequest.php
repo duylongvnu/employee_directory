@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CheckDepartmentsRequest extends Request
+class CheckEmployeesRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,10 @@ class CheckDepartmentsRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:6', 
-            'office_phone' => 'required|numeric',
+            'name' => 'required|min:6',
+            'job_title' => 'required',
+            'cellphone' => 'required|numeric',
+            'email' => 'required|email',
         ];
     }
 }

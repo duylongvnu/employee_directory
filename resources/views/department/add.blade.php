@@ -32,7 +32,7 @@
 							<label class="col-md-4 control-label">Office Phone</label>
 
 							<div class="col-md-6">
-                                <input type="tel" class="form-control" id="office_phone" name="office_phone">
+                                <input type="textO" class="form-control" id="office_phone" name="office_phone">
                                 @if ($errors->has('office_phone'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('office_phone') }}</strong>

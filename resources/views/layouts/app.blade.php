@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/department') }}">Departments</a></li>
+                    <li><a href="{{ url('/department') }}"><i class="fa fa-sitemap"></i> Departments</a></li>
                     <li><a href="{{ url('/employee') }}"><i class="fa fa-users"></i> Employees</a></li>
                 </ul>
 

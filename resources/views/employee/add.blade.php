@@ -61,7 +61,7 @@
                                 <label class="col-md-4 control-label">CellPhone</label>
 
                                 <div class="col-md-6">
-                                    <input type="tel" class="form-control" id="cellphone" name="cellphone">
+                                    <input type="text" class="form-control" id="cellphone" name="cellphone">
                                     @if ($errors->has('cellphone'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('cellphone') }}</strong>

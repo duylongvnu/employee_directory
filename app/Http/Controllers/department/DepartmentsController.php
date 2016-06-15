@@ -5,6 +5,7 @@ namespace App\Http\Controllers\department;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CheckDepartmentsRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Departments;
@@ -55,7 +56,7 @@ class DepartmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
+    public function store(CheckDepartmentsRequest $request){
         $dulieu_tu_input = new Departments;
 
         /* Check the name value and the office_phone value */
@@ -68,6 +69,15 @@ class DepartmentsController extends Controller
                 if ($department->office_phone == $request->Input('office_phone')) {
                     \Session::flash('message2', 'The Office Phone has already been taken.');
                 }
+                return redirect('department/add');
+            }
+        }
+
+        /* Check the office_phone value with the cellphone value */
+        $employees = Employees::all();
+        foreach ($employees as $employee) {
+            if ($request->Input('office_phone') == $employee->cellphone) {
+                \Session::flash('message2', 'The Office Phone has already been taken.');
                 return redirect('department/add');
             }
         }
@@ -119,7 +129,7 @@ class DepartmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($id, CheckDepartmentsRequest $request)
     {
         /* Check the name value and the office_phone value */
         $departments = Departments::all();
@@ -135,6 +145,15 @@ class DepartmentsController extends Controller
             }
         }
 
+        /* Check the office_phone value with the cellphone value */
+        $employees = Employees::all();
+        foreach ($employees as $employee) {
+            if ($request->Input('office_phone') == $employee->cellphone) {
+                \Session::flash('message2', 'The Office Phone has already been taken.');
+                return redirect('department/edit/'. $id);
+            }
+        }
+        
         /* Update the infomation of the specified resource */
         $department = Departments::findOrFail($id);
 
